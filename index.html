@@ -257,8 +257,8 @@
           </div>
         </div>
 
+        <!-- Deze poging geeft geen errors, maar alleen een lege pagina -->
         <script>
-          // Define a function to load the remote entry script
           // function loadRemoteEntry() {
           //   return new Promise((resolve, reject) => {
           //     const script = document.createElement('script');
@@ -269,26 +269,13 @@
           //     document.head.appendChild(script); // Append the script tag to the document
           //   });
           // }
-        
-          // // Call the function to load the remote entry script
-          // loadRemoteEntry().then(() => {
-          //   const ChatWidgetComponent = window.chatwidget.ChatWidgetComponent;
-
-          //   // Example: Instantiate the ChatWidgetComponent and append it to a container
-          //   const container = document.getElementById('content-chat');
-          //   const chatWidget = new ChatWidgetComponent();
-          //   container.appendChild(chatWidget);
-          // }).catch((error) => {
-          //   // Handle any errors that occur while loading the remote entry script
-          //   console.error('Failed to load remote entry:', error);
-          // });
         </script>
 
+        <!-- Deze poging geeft alleen maar een error -->
         <script>
           webpackChunkchatwidget.main.load()
             .then(() => {
               const appElement = document.getElementById('app');
-              // Render content using the main module or manipulate the DOM
             })
             .catch((error) => {
               console.error('Failed to load main module:', error);
@@ -298,19 +285,6 @@
         <div id="app"></div>
 
         <div id="content-chat" style="display: inline-block;">
-          <!-- <script type="module">
-            import { loadRemoteEntry } from '@angular-architects/module-federation';
-
-            loadRemoteEntry('http://localhost:4200/main.js', 'chatwidget')
-            // import('http://localhost:4200/main.js').then((module) => {
-            //     const ChatWidgetComponent = module.default;
-            //     // Use the ChatWidgetComponent here
-            // }).catch((error) => {
-            //     console.error('Failed to load chatwidget/main:', error);
-            // });
-          </script> -->
-
-          
             <!-- <iframe src="http://localhost:4200/chat" style="position: absolute; height: 75%; width: 75%; border: none;"></iframe> -->
         </div>
 
