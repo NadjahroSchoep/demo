@@ -257,35 +257,16 @@
           </div>
         </div>
 
-        <!-- Deze poging geeft geen errors, maar alleen een lege pagina -->
-        <script>
-          // function loadRemoteEntry() {
-          //   return new Promise((resolve, reject) => {
-          //     const script = document.createElement('script');
-          //     script.src = 'http://localhost:4200/main.js';
-          //     script.type = 'module'; // Ensure that it's treated as a module script
-          //     script.onload = resolve; // Resolve the promise once the script is loaded
-          //     script.onerror = reject; // Reject the promise if there's an error loading the script
-          //     document.head.appendChild(script); // Append the script tag to the document
-          //   });
-          // }
-        </script>
-
-        <!-- Deze poging geeft alleen maar een error -->
-        <script>
-          webpackChunkchatwidget.main.load()
-            .then(() => {
-              const appElement = document.getElementById('app');
-            })
-            .catch((error) => {
-              console.error('Failed to load main module:', error);
-            });
-        </script>
-
-        <div id="app"></div>
-
         <div id="content-chat" style="display: inline-block;">
-            <!-- <iframe src="http://localhost:4200/chat" style="position: absolute; height: 75%; width: 75%; border: none;"></iframe> -->
+          <h2>Spoed EPD - iFrame</h2>
+          // Attempt at loading the remote entry point
+          <!-- <script type="module" src="http://localhost:4200/remoteEntry.mjs"></script> -->
+
+          // Working OIDC request
+          <iframe src="https://nadjahro-poc-first.eu.auth0.com/authorize?response_type=token&client_id=mPYQwaKfaxuKWM4TgysDfwnnzHDOzAVs&redirect_uri=http://localhost:4200/chat&scope=openid%20profile%20email&connection=ExternOIDC" style="position: absolute; height: 70%; width: 75%; border: none;"></iframe>
+          
+          // Working SAML request
+          <!-- <iframe src="https://nadjahro-poc-first.eu.auth0.com/authorize?response_type=token&client_id=mPYQwaKfaxuKWM4TgysDfwnnzHDOzAVs&redirect_uri=http://localhost:4200/chat&scope=openid%20profile%20email&connection=ExternalSAML" style="position: absolute; height: 70%; width: 75%; border: none;"></iframe> --> -->
         </div>
 
         <div class="page" id="content-profile">
@@ -312,6 +293,11 @@
       </div>
       
     </div>
+
+    <!-- <script src="./public/chatwidget/runtime.4e3176d6b54eb76c.js" type="module"></script>
+    <script src="./public/chatwidget/polyfills.2e1718339e020f97.js" type="module"></script>
+    <script src="./public/chatwidget/main.fda06155f8509fb2.js" type="module"></script>
+    <script src="./public/chatwidget/593.26b8aa10d7917250.js" type="module"></script> -->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
